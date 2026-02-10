@@ -48,12 +48,12 @@ const App: React.FC = () => {
 
   const menuItems = useMemo(() => {
     const allItems = [
-      { id: 'dashboard', label: '대시보드', icon: LayoutDashboard, roles: ['관리자'] },
-      { id: 'log-entry', label: '운항일지 작성', icon: ClipboardList, roles: ['관리자', '선장', '기관장'] },
-      { id: 'log-management', label: '운항일지 관리', icon: ClipboardList, roles: ['관리자', '선장'] },
-      { id: 'members', label: '회원 관리', icon: Users, roles: ['관리자'] },
-      { id: 'ships', label: '선박 정보 관리', icon: Anchor, roles: ['관리자'] },
-      { id: 'telegram', label: 'Telegram 설정', icon: Settings, roles: ['관리자'] },
+      { id: 'dashboard', label: '대시보드', icon: LayoutDashboard, roles: ['부문장'] },
+      { id: 'log-entry', label: '운항일지 작성', icon: ClipboardList, roles: ['부문장', '선장', '기관장'] },
+      { id: 'log-management', label: '운항일지 관리', icon: ClipboardList, roles: ['부문장', '선장'] },
+      { id: 'members', label: '회원 관리', icon: Users, roles: ['부문장'] },
+      { id: 'ships', label: '선박 정보 관리', icon: Anchor, roles: ['부문장'] },
+      { id: 'telegram', label: 'Telegram 설정', icon: Settings, roles: ['부문장'] },
     ];
 
     if (!currentUser) return [];
@@ -168,11 +168,11 @@ const App: React.FC = () => {
               <Menu size={24} />
             </button>
             <h1 className="text-xl font-bold text-slate-900">
-              {menuItems.find(i => i.id === activeTab)?.label || '시스템'}
+              {menuItems.find(i => i.id === activeTab)?.label || '테스트버전'}
             </h1>
           </div>
           <div className="text-xs font-medium text-slate-500 hidden sm:block">
-            나미나라공화국 운항 관리 시스템 (v1.2)
+            나미나라공화국 운항 관리 테스트버전 (v2.0)
           </div>
         </header>
 
