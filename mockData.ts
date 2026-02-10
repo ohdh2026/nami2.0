@@ -2,17 +2,17 @@
 import { User, OperationLog } from './types';
 
 export const INITIAL_USERS: User[] = [
-  { id: 'u1', name: '홍길동', role: '관리자', phone: '010-1234-5678', telegramChatId: '12345678', joinedDate: '2023-01-01' },
-  { id: 'u2', name: '김선장', role: '선장', phone: '010-2222-3333', telegramChatId: '87654321', joinedDate: '2023-02-15' },
-  { id: 'u3', name: '이기관', role: '기관장', phone: '010-4444-5555', telegramChatId: '11223344', joinedDate: '2023-03-10' },
-  { id: 'u4', name: '박승무', role: '승무원', phone: '010-6666-7777', telegramChatId: '44332211', joinedDate: '2023-04-05' },
-  { id: 'u5', name: '최선장', role: '선장', phone: '010-8888-9999', telegramChatId: '99887766', joinedDate: '2023-05-20' },
-  { id: 'u6', name: '정기관', role: '기관장', phone: '010-1111-2222', telegramChatId: '55667788', joinedDate: '2023-06-15' },
+  { id: 'u1', name: '부분장', role: '관리자', phone: '010-1234-5678', telegramChatId: '12345678', joinedDate: '2026-01-01' },
+  { id: 'u2', name: '정현준', role: '선장', phone: '010-2222-3333', telegramChatId: '87654321', joinedDate: '2026-02-15' },
+  { id: 'u3', name: '김영창', role: '기관장', phone: '010-4444-5555', telegramChatId: '11223344', joinedDate: '2025-03-10' },
+  { id: 'u4', name: '표진수', role: '승무원', phone: '010-6666-7777', telegramChatId: '44332211', joinedDate: '2025-04-05' },
+  { id: 'u5', name: '신교철', role: '선장', phone: '010-8888-9999', telegramChatId: '99887766', joinedDate: '2025-05-20' },
+  { id: 'u6', name: '이준길', role: '기관장', phone: '010-1111-2222', telegramChatId: '55667788', joinedDate: '2025-06-15' },
 ];
 
 export const generateMockLogs = (count: number): OperationLog[] => {
   const logs: OperationLog[] = [];
-  const ships = ["탐나라호", "아일래나호", "가우디호", "인어공주호"];
+  const ships = ["탐나라호", "아일래나호", "알라딘호", "인어공주호"];
   
   for (let i = 0; i < count; i++) {
     const isCompleted = Math.random() > 0.2;
@@ -27,11 +27,11 @@ export const generateMockLogs = (count: number): OperationLog[] => {
       id: `log-${i}`,
       shipName: ships[Math.floor(Math.random() * ships.length)],
       captainId: 'u2',
-      captainName: '김선장',
+      captainName: '정윤모',
       engineerId: 'u3',
-      engineerName: '이기관',
+      engineerName: '오승철',
       crewIds: ['u4'],
-      crewNames: ['박승무'],
+      crewNames: ['이시영'],
       departureTime: departure.toISOString(),
       arrivalTime: isCompleted ? arrival.toISOString() : undefined,
       passengerCount: Math.floor(Math.random() * 100) + 10,
