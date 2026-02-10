@@ -4,7 +4,7 @@ import { Ship, Role } from './types';
 export const SHIPS: Ship[] = [
   { id: 'ship-1', name: "탐나라호", capacity: 300 },
   { id: 'ship-2', name: "아일래나호", capacity: 200 },
-  { id: 'ship-3', name: "가우디호", capacity: 100 },
+  { id: 'ship-3', name: "알라딘호", capacity: 100 },
   { id: 'ship-4', name: "인어공주호", capacity: 100 }
 ];
 
