@@ -54,8 +54,10 @@ const TelegramSettings: React.FC<TelegramSettingsProps> = ({ config, setConfig, 
 
   const quickTemplates = [
     "운항 주의 바랍니다.",
-    "기상 악화로 인한 대기 필요.",
-    "즉시 보고 바랍니다.",
+   /* "기상 악화로 인한 대기 필요.",
+      "즉시 보고 바랍니다.", */
+    "가평나루 호출입니다.",
+    "남이나루 이동하십시요.",
     "오늘 업무 종료입니다. 수고하셨습니다."
   ];
 
