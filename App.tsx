@@ -9,21 +9,20 @@ import {
   LogOut, 
   Menu, 
   X,
-  User as UserIcon,
-  Plus
+  User as UserIcon
 } from 'lucide-react';
-import { User, Role, OperationLog, Ship, TelegramConfig } from './types';
-import { INITIAL_USERS, generateMockLogs } from './mockData';
-import { SHIPS, ROLES } from './constants';
-import { getStorageItem, setStorageItem } from './utils/storage';
+import { User, OperationLog, Ship, TelegramConfig } from './types.ts';
+import { INITIAL_USERS, generateMockLogs } from './mockData.ts';
+import { SHIPS } from './constants.ts';
+import { getStorageItem, setStorageItem } from './utils/storage.ts';
 
 // Pages
-import Dashboard from './components/Dashboard';
-import MemberManagement from './components/MemberManagement';
-import ShipManagement from './components/ShipManagement';
-import LogEntry from './components/LogEntry';
-import LogManagement from './components/LogManagement';
-import TelegramSettings from './components/TelegramSettings';
+import Dashboard from './components/Dashboard.tsx';
+import MemberManagement from './components/MemberManagement.tsx';
+import ShipManagement from './components/ShipManagement.tsx';
+import LogEntry from './components/LogEntry.tsx';
+import LogManagement from './components/LogManagement.tsx';
+import TelegramSettings from './components/TelegramSettings.tsx';
 
 const App: React.FC = () => {
   // State
@@ -42,12 +41,11 @@ const App: React.FC = () => {
   useEffect(() => { setStorageItem('naminara_logs', logs); }, [logs]);
   useEffect(() => { setStorageItem('naminara_telegram', telegramConfig); }, [telegramConfig]);
 
-  // Auth Simulation (Auto-login for demo)
+  // Auth Simulation
   useEffect(() => {
     if (!currentUser) setCurrentUser(users[0]);
   }, []);
 
-  // Filter menu based on role
   const menuItems = useMemo(() => {
     const allItems = [
       { id: 'dashboard', label: '대시보드', icon: LayoutDashboard, roles: ['관리자'] },
@@ -59,16 +57,10 @@ const App: React.FC = () => {
     ];
 
     if (!currentUser) return [];
-    
-    // Phase 5: Captain only sees log-entry and their own logs
-    const filtered = allItems.filter(item => item.roles.includes(currentUser.role));
-    
-    return filtered;
+    return allItems.filter(item => item.roles.includes(currentUser.role));
   }, [currentUser]);
 
-  // Handle Log Out
   const handleLogout = () => {
-    // For demo, just switch to the next user
     const currentIndex = users.findIndex(u => u.id === currentUser?.id);
     const nextIndex = (currentIndex + 1) % users.length;
     setCurrentUser(users[nextIndex]);
@@ -107,7 +99,6 @@ const App: React.FC = () => {
 
   return (
     <div className="flex h-screen overflow-hidden bg-slate-50">
-      {/* Mobile Sidebar Overlay */}
       {isSidebarOpen && (
         <div 
           className="fixed inset-0 z-40 bg-slate-900/50 lg:hidden" 
@@ -115,7 +106,6 @@ const App: React.FC = () => {
         />
       )}
 
-      {/* Sidebar */}
       <aside className={`
         fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-white transition-transform duration-300 lg:static lg:translate-x-0
         ${isSidebarOpen ? 'translate-x-0' : '-translate-x-full'}
@@ -171,9 +161,7 @@ const App: React.FC = () => {
         </div>
       </aside>
 
-      {/* Main Content */}
       <main className="flex-1 flex flex-col min-w-0 overflow-hidden">
-        {/* Header */}
         <header className="flex items-center justify-between px-6 py-4 bg-white border-b border-slate-200 lg:px-8">
           <div className="flex items-center gap-4">
             <button className="lg:hidden" onClick={() => setIsSidebarOpen(true)}>
@@ -188,7 +176,6 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        {/* Content Area */}
         <div className="flex-1 overflow-y-auto p-4 lg:p-8">
           <div className="max-w-7xl mx-auto">
             {renderContent()}
