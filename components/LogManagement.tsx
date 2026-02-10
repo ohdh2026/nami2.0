@@ -59,7 +59,7 @@ const LogManagement: React.FC<LogManagementProps> = ({ logs, users, ships }) => 
   const exportToExcel = () => {
     const dataToExport = logs.filter(l => selectedLogs.has(l.id)).map(l => ({
       '운항날짜': new Date(l.departureTime).toLocaleDateString(),
-      '선박명': l.shipName,
+      '페리명': l.ferryName,
       '선장': l.captainName,
       '기관장': l.engineerName,
       '승무원': l.crewNames.join(', '),
