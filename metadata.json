@@ -1,0 +1,5 @@
+{
+  "name": "Naminara Ferry Log System",
+  "description": "A professional maritime operation management system for the Naminara Republic ferry fleet, featuring mobile-optimized log entry, real-time tracking, Telegram integration, and Excel reporting.",
+  "requestFramePermissions": []
+}
