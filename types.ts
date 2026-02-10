@@ -1,5 +1,5 @@
 
-export type Role = '관리자' | '선장' | '기관장' | '승무원';
+export type Role = '부분장' | '선장' | '기관장' | '승무원';
 
 export interface User {
   id: string;
